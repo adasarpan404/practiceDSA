@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "bubbleSort.h"
+#include "insertionSort.h"
 #include <chrono>
 
 using namespace std;
@@ -21,7 +21,7 @@ int main()
     cout << "\n"
          << "\n";
     auto start = high_resolution_clock::now();
-    vector<int> res = bubbleSort(a);
+    vector<int> res = insertionSort(a);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     for (int i = 0; i < 10; i++)

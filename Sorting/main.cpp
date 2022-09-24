@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "recursiveBubbleSort.h"
+#include "recursiveSelectionSort.h"
 #include <chrono>
 
 using namespace std;
@@ -21,7 +21,7 @@ int main()
     cout << "\n"
          << "\n";
     auto start = high_resolution_clock::now();
-    recursiveBubbleSort(a, a.size());
+    recursiveSelectionSort(a, 0);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
     for (int i = 0; i < 10; i++)

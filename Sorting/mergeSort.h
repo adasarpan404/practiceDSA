@@ -52,8 +52,3 @@ void MergeSort(vector<int> &v, int s, int e)
         MergeSortedIntervals(v, s, m, e);
     }
 }
-vector<int> useMergeSort(vector<int> nums)
-{
-    MergeSort(nums, 0, nums.size() - 1);
-    return nums;
-}

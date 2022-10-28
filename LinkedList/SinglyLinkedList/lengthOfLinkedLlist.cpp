@@ -21,22 +21,33 @@ void insertAtHead(node *&head, int val)
     head = n;
 }
 
-
-int count(node*& head){
-    int count=0;
-    node* current = head;
-    while(current){
-        count++;
-        current = current -> next;
-        
-    }
+int RandomNumber(int min, int max)
+{
+    float r = (float)rand() / (float)RAND_MAX;
+    return (int)(min + r * (max - min));
 }
-int main(){
+int lengthIter(node *&head)
+{
+    int count = 0;
+    node *current = head;
+    while (current)
+    {
+        count++;
+        current = current->next;
+    }
+    return count;
+}
+int main()
+{
     node *head = NULL;
-    insertAtHead(head, 1);
-    insertAtHead(head, 2);
-    insertAtHead(head, 3);
+    int n;
+    cin >> n;
+    for (int i = 0; i < 2 * n + RandomNumber(0, n); i++)
+    {
+        insertAtHead(head, i);
+    }
+
     cout << "Length of linkedlist \n";
-    cout<<lengthIter(head);
+    cout << lengthIter(head);
     return 0;
 }

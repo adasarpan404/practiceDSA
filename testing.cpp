@@ -101,43 +101,23 @@ void solveCactus(vector<vector<char>> &board, int m, int n)
 }
 void solve()
 {
-    int t, n, last;
-    char w;
-    string s;
-    int maxs[2];
-    cin >> n >> w >> s;
-    maxs[0] = maxs[1] = 0;
+    int n;
+    cin >> n;
 
-    for (int f = 0; f < s.size(); f++)
+    vector<int> a(n), b(n);
+    ll ans = 0;
+    for (int i = 0; i < n; i++)
     {
-        if (s[f] == 'g')
+        cin >> a[i] >> b[i];
+        if (a[i] > b[i])
         {
-            last = n + f;
-            break;
+            swap(a[i], b[i]);
         }
+        ans += a[i];
     }
-    for (int f = s.size() - 1; f >= 0; f--)
-    {
-        if (s[f] == 'g')
-            last = f;
-        if (s[f] == 'r')
-            maxs[0] = max(maxs[0], last - f);
-        if (s[f] == 'y')
-            maxs[1] = max(maxs[1], last - f);
-    }
-
-    if (w == 'g')
-    {
-        cout << 0 << "\n";
-    }
-    else if (w == 'r')
-    {
-        cout << maxs[0] << "\n";
-    }
-    else
-    {
-        cout << maxs[1] << "\n";
-    }
+    ans += *max_element(b.begin(), b.end());
+    ans *= 2;
+    cout << ans << "\n";
 }
 int main()
 {

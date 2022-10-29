@@ -103,33 +103,21 @@ void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    int countOf01 = 0;
-    s[s.size()] = '\0';
-    for (int i = 0; i < n - 1; i++)
-    {
-        if (((int)s[i] - '0' == 1) && ((int)s[i + 1] - '0' == 0))
-        {
-            int f=0;
-            int j;
-            for(j=i+1;j<n;j++){
-                if(s[j]=='1'){
-                    f=1;
-                    break;
-                }
-            }
-            if(f==1){
-                countOf01+=2;
-                i=j-1;
-            }else{
-                countOf01++;
-                i=j-1;
-            }
-        }
 
+    vector<int> a(n), b(n);
+    ll ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i] >> b[i];
+        if (a[i] > b[i])
+        {
+            swap(a[i], b[i]);
+        }
+        ans += a[i];
     }
-    cout << countOf01 << endl;
+    ans += *max_element(b.begin(), b.end());
+    ans *= 2;
+    cout << ans << "\n";
 }
 int main()
 {
